@@ -36,15 +36,15 @@ app.get("/api/tweets/:hashtag", (req, res) => {
       res.send(twitterResponse.data);
     })
     .catch((err) => {
-      if (err.statusCode === 401) {
+      if (err.response.status === 401) {
         console.log(
-          ".env file should have a TWITTER_BEARER_TOKEN property in it with the twitter Bearer token"
+          ".env file should have a TWITTER_BEARER_TOKEN property in it with the twitter Bearer token\n"
         );
       } else {
         console.log("Unknown error", err);
       }
 
-      res.sendStatus(err.statusCode);
+      res.sendStatus(err.response.status);
     });
 });
 

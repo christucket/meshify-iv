@@ -11,6 +11,7 @@ import { getTweets, getMetaData } from "../lib/util";
 import type { ITweetMetaData } from "../common/interfaces";
 import type { RetweetOption } from "../common/types";
 
+// how many words to get back and show. requires from the email says 20
 const MAX_RESULTS = 20;
 
 function App() {
