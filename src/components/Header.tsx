@@ -1,14 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../styles/header.css";
 
-interface HeaderProps {
+import type { RetweetOption } from "../common/types";
+
+interface IHeaderProps {
   hashtag: string;
   setHashtag: React.Dispatch<React.SetStateAction<string>>;
+  retweetOption: RetweetOption;
+  setRetweetOption: React.Dispatch<React.SetStateAction<RetweetOption>>;
 }
 
-function Header({ hashtag, setHashtag }: HeaderProps) {
-  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+function Header({
+  hashtag,
+  setHashtag,
+  retweetOption,
+  setRetweetOption,
+}: IHeaderProps) {
+  const handleInputOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setHashtag(event.target.value);
+  };
+
+  const handleSelectOnChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const value = event.target.value;
+
+    if (
+      value === "no-retweets" ||
+      value === "only-retweets" ||
+      value === "do-nothing"
+    ) {
+      setRetweetOption(value);
+    }
   };
 
   return (
@@ -19,8 +42,16 @@ function Header({ hashtag, setHashtag }: HeaderProps) {
         <input
           className="header__hashtag"
           value={hashtag}
-          onChange={handleOnChange}
+          onChange={handleInputOnChange}
         />
+      </div>
+      <div>
+        Retweets:
+        <select value={retweetOption} onChange={handleSelectOnChange}>
+          <option value="do-nothing">Do nothing</option>
+          <option value="no-retweets">Ignore retweets</option>
+          <option value="only-retweets">Only retweets</option>
+        </select>
       </div>
     </header>
   );

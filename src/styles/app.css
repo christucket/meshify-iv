@@ -1,27 +1,31 @@
-.App {
-  text-align: center;
+.app {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidepanel wordcloud";
+  grid-template-columns: 600px auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wordcloud {
+  position: sticky;
+  top: 0;
+  grid-area: wordcloud;
+  max-height: 90vh;
+  max-width: 100%;
+  margin-top: -10vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 1000px) {
+  .app {
+    grid-template-areas:
+      "header"
+      "wordcloud"
+      "sidepanel";
+    grid-template-columns: auto;
   }
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  .wordcloud {
+    position: static;
+    top: auto;
   }
 }

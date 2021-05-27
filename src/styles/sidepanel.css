@@ -1,0 +1,12 @@
+.sidepanel {
+  display: flex;
+  flex-direction: column;
+  grid-area: sidepanel;
+  min-width: 600px;
+  overflow-y: auto;
+  align-items: center;
+}
+
+.sidepanel > div {
+  min-width: 550px;
+}
