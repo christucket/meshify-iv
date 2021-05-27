@@ -46,7 +46,7 @@ function Header({
         />
       </div>
       <div>
-        Retweets:
+        <span>Retweets:</span>
         <select value={retweetOption} onChange={handleSelectOnChange}>
           <option value="do-nothing">Do nothing</option>
           <option value="no-retweets">Ignore retweets</option>

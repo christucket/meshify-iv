@@ -15,6 +15,10 @@
   margin-top: -10vh;
 }
 
+.wordcloud__error {
+  padding-top: 10vh;
+}
+
 @media (max-width: 1000px) {
   .app {
     grid-template-areas:
