@@ -1,3 +1,10 @@
+# Meshify-IV
+Only setup needed is to populate the .env file in the root directory with the Twitter API's Bearer token.
+
+Run the app and server as expected with `npm start`
+
+Click words in the cloud to see tweets associated with them
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
